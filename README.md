@@ -7,6 +7,23 @@ There are two components. An exporter that does the actual scraping, and a
 [generator](generator/) (which depends on NetSNMP) that creates the
 configuration for use by the exporter.
 
+## with exeternal labels
+In some special case, we need some external label for specify oid. For example, when move from zabbix to prometheus, we define some labels for each oid, so does it for snmp exporter. This branch is for the external lable support.
+
+Eg.
+``` yaml
+  - external_labels:
+      app: Power
+      name: Overall System Power State
+    help: app:Power name:Overall System Power State  oid:1.3.6.1.4.1.674.10892.5.2.4.0
+    name: GlobalSystemPowerState
+    oid: 1.3.6.1.4.1.674.10892.5.2.4.0
+    type: gauge
+```
+## docker
+
+00arthur/snmp_exporter
+
 ## Installation
 
 Binaries can be downloaded from the [Github
